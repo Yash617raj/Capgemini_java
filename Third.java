@@ -389,18 +389,30 @@ public class Third {
 
             //53. Write a program to print the first n numbers in the Fibonacci sequence. 0, 1, 1, 2, 3, 5, 8, 13, ...
 
+            // Scanner sc = new Scanner(System.in);
+            // System.out.println("Enter the number: ");
+
+            // int n = sc.nextInt();
+            // int a=0,b=1;
+            // System.out.print(a+" "+b);
+            // for(int i=2;i<n;i++){
+            //     int c=a+b;
+            //     System.out.print(" "+c);
+            //     a=b;
+            //     b=c;
+            // }
+
+            // 54 WJAP to print digit of a given number.
+            
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter the number: ");
 
             int n = sc.nextInt();
-            int a=0,b=1;
-            System.out.print(a+" "+b);
-            for(int i=2;i<n;i++){
-                int c=a+b;
-                System.out.print(" "+c);
-                a=b;
-                b=c;
+            while(n>0){
+                int dig = n%10;
+                System.out.println(dig);
+                n/=10;
             }
-
+            sc.close();
     }
 }
