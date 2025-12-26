@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public class Fourth {
     public static void main(String[] args){
         // 54 WJAP to print digit of a given number.

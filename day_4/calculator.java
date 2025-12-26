@@ -1,4 +1,3 @@
-package day_4;
 import java.util.Scanner;
 
 class calculator {

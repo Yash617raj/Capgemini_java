@@ -8,6 +8,7 @@ public class isFibo {
         System.out.println("Enter the number: ");
         int n = sc.nextInt();
         System.out.println(isFib(n));
+        sc.close();
     }
 
     public static boolean isFib(int n) {

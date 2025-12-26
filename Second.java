@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class Second {
+    @SuppressWarnings("resource")
     public static void main(String[] args){
         //Q1 WAJP to check leap year
 
@@ -543,5 +544,6 @@ class Second {
         System.out.println("Final Fare: "+finalFare);
         System.out.println("Discount given: "+disc);
         System.out.println("Booking Status: "+bookingStatus);
+        
     }
 }
