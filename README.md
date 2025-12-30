@@ -227,4 +227,418 @@ class Square {
 * Increment happens **after**
 * Returns the **original value**
 
+---
+
+## 21. Decision Making Statements
+
+Decision-making statements are used to control the flow of execution based on conditions.
+
+### Types of Decision Making Statements
+
+1. **`if`**
+
+   * Executes a block of code when the condition is `true`.
+
+2. **`if-else`**
+
+   * Executes one block if the condition is `true`, otherwise executes another block.
+
+3. **`if-else-if ladder`**
+
+   * Used to check multiple conditions sequentially.
+
+4. **`switch`**
+
+   * Executes different cases based on a single expression value.
+
+---
+
+## 22. Java `switch` Statement – Key Points
+
+* **Input Data Types**
+
+  * The `switch` statement **cannot accept**:
+
+    * `long`, `float`, `double`, `boolean`
+  * Allowed types:
+
+    * `byte`, `short`, `char`, `int`, `String`, `enum`
+
+* **Controlling Execution Flow**
+
+  * `break` is a **control transfer statement**
+  * Required to exit the switch block and avoid *fall-through*
+
+* **`default` Case**
+
+  * Optional (not mandatory)
+  * Can be placed **anywhere** inside the switch block
+
+---
+
+## 23. Loops in Java
+
+Loops are used to execute the same set of statements multiple times.
+
+### ICU Concept
+
+* **Initialization**
+* **Condition**
+* **Updation**
+
+---
+
+### While Loop
+
+```java
+Initialization;
+while(condition) {
+    // statements
+    updation;
+}
+```
+
+---
+
+### Do-While Loop
+
+```java
+Initialization;
+do {
+    // statements
+    updation;
+} while(condition);
+```
+
+---
+
+### For Loop
+
+```java
+for(Initialization; condition; updation) {
+    // statements
+}
+```
+
+---
+
+## 24. When to Use Which Loop?
+
+* **For Loop**
+
+  * Used when the number of iterations or final condition is known beforehand.
+
+* **While Loop**
+
+  * Used when the number of iterations is not known initially.
+
+* **Do-While Loop**
+
+  * Used when the loop body must execute **at least once**, regardless of the condition.
+
+---
+
+## 25. Difference Between `if-else-if ladder` and `switch`
+
+| Feature        | if-else-if Ladder            | switch                  |
+| -------------- | ---------------------------- | ----------------------- |
+| Condition Type | Complex expressions & ranges | Single expression       |
+| Execution      | Sequential checking          | Direct value matching   |
+| Performance    | Slower for many conditions   | Faster for fixed values |
+| Fall-through   | Not applicable               | Happens without `break` |
+
+---
+
+## 26. Methods in Java
+
+A **method** is a block of statements used to perform a specific task.
+
+### Method Structure
+
+* Access Modifier / Specifier
+* Return Type
+* Method Name
+  Example:
+
+```java
+public static void main(String[] args)
+```
+
+### Key Points
+
+* Methods can be created **only inside the class (global area)**
+* One class can have **multiple methods**
+* A method executes **only when it is called**
+* A method can be called **any number of times**
+
+---
+
+## 27. Types of Methods
+
+### 1. No-Argument Method
+
+* A method with **no formal arguments**
+
+### 2. Parameterized Method
+
+* A method with **formal arguments**
+
+---
+
+## 28. Method Overloading
+
+* Multiple methods with the **same name** in the same class
+* Must differ in:
+
+  * Number of arguments
+  * Data types
+  * Order (sequence)
+
+**Purpose:**
+Used when performing the **same task with different inputs**
+
+---
+
+## 29. Typecasting in Java
+
+Typecasting is the conversion of one data type into another.
+
+---
+
+### 29.1 Primitive Typecasting
+
+#### Widening (Implicit)
+
+* Smaller data type → Bigger data type
+* No data loss
+
+**Flow:**
+
+```
+byte → short → int → long → float → double
+char → int → long → float → double
+```
+
+---
+
+#### Narrowing (Explicit)
+
+* Bigger data type → Smaller data type
+* **May cause data loss**
+
+---
+
+### 29.2 Non-Primitive Typecasting
+
+* Conversion between object references
+
+#### Upcasting
+
+* Subclass → Superclass
+
+#### Downcasting
+
+* Superclass → Subclass
+
+---
+
+## 30. Arrays in Java
+
+An array is a **contiguous memory block** used to store **homogeneous data**.
+
+### Array Creation
+
+#### Using Array Literal
+
+```java
+datatype[] arr = {v1, v2, v3};
+```
+
+#### Using `new` Keyword
+
+```java
+datatype[] arr = new datatype[size];
+```
+
+---
+
+## 31. Global Members in Java
+
+Global members are declared inside the class but outside methods.
+
+### Types of Global Members
+
+#### Static Members
+
+* Static variable
+* Static method
+* Static block (Static Initializer Block)
+
+#### Non-Static Members
+
+* Non-static variable
+* Non-static method
+* Non-static block (Instance Initializer Block)
+* Constructor
+
+---
+
+## 32. Static Members
+
+### Static Variable
+
+* Declared using `static` keyword
+* Stored in **class static area**
+* Automatically initialized with default values
+* Shared among all objects
+* Accessible from both static and non-static contexts
+
+---
+
+### Static Block
+
+* Used to initialize static members
+* Executes **once** when the class is loaded
+
+```java
+static {
+    System.out.println("Class Loaded");
+}
+```
+
+---
+
+## 33. Difference Between Global and Local Variables
+
+| Feature        | Local Variable         | Global Variable           |
+| -------------- | ---------------------- | ------------------------- |
+| Scope          | Inside method/block    | Entire class              |
+| Lifetime       | During block execution | Program / object lifetime |
+| Initialization | Mandatory              | Default values assigned   |
+
+---
+
+## 34. JVM Memory Areas
+
+* **Class Static Area**
+
+  * Stores static members
+  * Named after the class
+
+* **Stack Area**
+
+  * Used for method execution
+
+* **Heap Area**
+
+  * Stores objects
+
+**Note:** JVM first calls the `main()` method for execution.
+
+---
+
+## 35. Static Variable vs Static Block
+
+| Feature    | Static Variable         | Static Block               |
+| ---------- | ----------------------- | -------------------------- |
+| Purpose    | Stores class-level data | Initializes static members |
+| Execution  | During class loading    | During class loading       |
+| Invocation | Accessed via class name | Executes automatically     |
+| Count      | Multiple allowed        | Multiple allowed           |
+
+---
+
+## 36. Object Creation
+
+* Non-static members require **object creation**
+* Object is created using `new` keyword
+* `new` returns the **memory address**
+* `ClassName` is a **non-primitive data type** that stores object reference
+
+---
+
+## 37. Static Variable vs Non-Static Variable
+
+### Static Variable
+
+* One copy shared by all objects
+* Exists till class is loaded
+* Accessed using class name
+
+### Non-Static Variable
+
+* Separate copy per object
+* Exists till object exists
+* Accessed using object reference
+
+---
+
+## 38. Non-Static Block (Instance Initializer Block)
+
+* Declared without `static` keyword
+* Executes **every time an object is created**
+* Used for instance-level initialization
+* Has no access modifier, return type, or name
+
+---
+
+## 39. Constructor in Java
+
+* Special non-static member
+* Name same as class name
+* No return type
+* Used to initialize objects
+
+### Constructor Execution Order
+
+1. **PLI** – Pre Loading Instruction (`super()`)
+2. **IIB** – Instance Initializer Block
+3. **UWS** – User Written Statements
+
+---
+
+## 40. Types of Constructors
+
+1. **Default Constructor**
+
+   * Provided by JVM if no constructor is written
+
+2. **Parameterized Constructor**
+
+   * Accepts arguments
+   * Used to initialize instance variables
+
+3. **Copy Constructor**
+
+   * Creates object using another object
+
+4. **Private Constructor**
+
+   * Prevents object creation from outside class
+
+---
+
+## 41. Static Block vs Non-Static Block
+
+| Feature   | Static Block              | Non-Static Block        |
+| --------- | ------------------------- | ----------------------- |
+| Execution | Once during class loading | Every object creation   |
+| Purpose   | Static initialization     | Instance initialization |
+| Access    | Static members only       | Static + Non-static     |
+
+---
+
+## 42. Constructor vs Method
+
+| Feature     | Constructor       | Method          |
+| ----------- | ----------------- | --------------- |
+| Purpose     | Initialize object | Define behavior |
+| Name        | Same as class     | Any valid name  |
+| Return Type | None              | Required        |
+| Invocation  | Automatic         | Manual          |
+
+---
+
+
+
 
