@@ -15,6 +15,7 @@ public class methodOverload {
         System.out.println("Enter the length and breath of rectangle: ");
         int a=sc.nextInt(),b=sc.nextInt();
         System.out.println(calculateArea(a, b));
+        sc.close();
         
     }
 

@@ -47,6 +47,7 @@ class Fifth {
         }
 
 
+        @SuppressWarnings("resource")
         public static void main(){
             // solve1(1); 
             // solve2(500); 
