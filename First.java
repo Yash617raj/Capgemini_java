@@ -34,7 +34,8 @@ class First{
 
         // sc.close();
 
-        /*Q1. Write a Java program to check whether the given number is divisible by 7 or not
+        /*
+        Q1. Write a Java program to check whether the given number is divisible by 7 or not
         Q2. Write a Java program to check whether the given number is divisible by both 3 and 5 or not.
         Q3 .Write a Java program to check whether the given character is vowel or consonant
         Q4. Write a Java program(WAJP) to check whether the given character is digit or not
@@ -109,7 +110,8 @@ class First{
         //     else System.out.println("Lowercase consonant");
         // }
 
-        /*Q1 WAJP to check if the number is negative,positive or zero
+        /*
+        Q1 WAJP to check if the number is negative,positive or zero
         Q2 WAJP to find Max number from three number
         Q3 WAJP to find Min number form three number
         */

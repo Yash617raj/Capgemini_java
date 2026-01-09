@@ -57,7 +57,7 @@ public class Seventh {
     // }
 
     /*
-        Whenvever we have non static variable and local variablewith same, if we use directly inside non static context the high priority is given for local variable. to use non static variable we have to use 'this'
+        Whenvever we have non static variable and local variable with same, if we use directly inside non static context the high priority is given for local variable. to use non static variable we have to use 'this'
 
         this is keywords, it is a non static reference variable,it is used to store address of current object, it can be used only inside non static context.
     */ 
