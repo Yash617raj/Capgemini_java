@@ -122,7 +122,6 @@ public class P1 {
         // }
 
         // Vector
-
         // List<String> v = new Vector<String>();
         // v.add("Yash");
         // v.add("Avi");
