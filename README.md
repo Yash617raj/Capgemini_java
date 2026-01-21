@@ -639,6 +639,910 @@ static {
 
 ---
 
+## 43. Constructor Chaining
+
+Constructor chaining is the process where **one constructor calls another constructor**.
+
+### Ways to Achieve:
+
+* `this()` → Calls constructor of the same class
+* `super()` → Calls constructor of the parent class
+
+### Rules:
+
+* Only **one constructor calling statement** (`this()` or `super()`) is allowed
+* It must be the **first statement** in the constructor
+* If a constructor contains `this()`, it **will not execute PLI and IIB**
+* If a class has `n` constructors, we can use at most `n-1` `this()` calls
+* **Constructor recursion is not allowed** (compile-time error)
+
+---
+
+## 44. Use of Constructor Overloading
+
+Constructor overloading allows a class to have **multiple constructors with different parameter lists**.
+
+### Advantages:
+
+* Flexible object initialization
+* Supports default and custom values
+* Improves readability
+* Allows object creation in different ways
+
+---
+
+## 45. Constructor Overloading vs Method Overloading
+
+| Feature     | Constructor Overloading                         | Method Overloading                                       |
+| ----------- | ----------------------------------------------- | -------------------------------------------------------- |
+| Definition  | Multiple constructors with different parameters | Multiple methods with same name but different parameters |
+| Purpose     | Initialize object in different ways             | Perform similar operations differently                   |
+| Return Type | Not allowed                                     | Required (can be `void`)                                 |
+| Invocation  | Implicit (`new`)                                | Explicit                                                 |
+| Calling     | `this()`                                        | `this.method()`                                          |
+
+---
+
+## 46. Parameterized Constructor
+
+A parameterized constructor is used to **initialize instance variables with user-defined values** at object creation time.
+
+### Use:
+
+* Set required fields
+* Define initial object state
+* Avoid default values
+
+---
+
+## 47. Copy Constructor
+
+A copy constructor is a **user-defined constructor** used to create a new object by copying another object.
+
+### Use:
+
+* Avoid reference sharing
+* Protect mutable data
+* Controlled object duplication
+
+---
+
+## 48. OOPS (Object Oriented Programming System)
+
+OOPS is a programming paradigm that maps **real-world entities into objects**.
+
+### Pillars:
+
+* Encapsulation
+* Inheritance
+* Polymorphism
+* Abstraction
+
+**State → Variables**
+**Behavior → Methods**
+
+---
+
+## 49. Encapsulation
+
+Encapsulation is the process of **binding data and methods together** and restricting direct access.
+
+### Achieves:
+
+* Data hiding
+* Controlled access
+
+### How:
+
+* Use `private` variables
+* Provide access via **getter and setter methods**
+
+---
+
+## 50. Diamond Problem
+
+The Diamond Problem occurs in **multiple inheritance** due to:
+
+* Class loading confusion
+* Object creation confusion
+* Memory access ambiguity
+
+➡️ Solved using **interfaces**
+
+---
+
+## 51. Upcasting and Downcasting
+
+### Upcasting
+
+* Subclass → Superclass reference
+* Access only superclass members
+
+### Downcasting
+
+* Superclass → Subclass reference
+* Access both superclass and subclass members
+* Must be preceded by upcasting
+
+⚠️ Else → `ClassCastException`
+
+---
+
+## 52. Polymorphism
+
+Polymorphism means **one name, multiple behaviors**.
+
+---
+
+### 52.1 Compile-Time Polymorphism (Static Binding)
+
+Binding happens at compile time.
+
+Achieved using:
+
+* Method overloading
+* Constructor overloading
+* Variable shadowing
+* Method shadowing (static methods)
+
+---
+
+### 52.2 Runtime Polymorphism (Dynamic Binding)
+
+Binding happens at runtime.
+
+Achieved using:
+
+* Method overriding
+  Decision depends on **object creation**, not reference type.
+
+---
+
+## 53. Variable Shadowing
+
+Variable shadowing occurs when **variables with the same name exist in different scopes**.
+
+### Use:
+
+* Reuse variable names
+* Maintain scope clarity
+
+### Used In:
+
+* Constructors
+* Methods
+* Setters
+* Blocks
+* Loops
+* Inheritance
+
+---
+
+## 54. Annotations
+
+Annotations provide **extra validation at compile time**.
+
+### Example:
+
+* `@Override` ensures correct method overriding
+  If signature mismatch → compile-time error
+
+---
+
+## 55. Abstraction
+
+Abstraction means **showing essential features and hiding implementation details**.
+
+### Achieved Using:
+
+* Abstract classes
+* Interfaces
+
+---
+
+## 56. Abstract Class
+
+* Cannot be instantiated
+* Can contain abstract and concrete methods
+* Provides partial abstraction
+
+---
+
+## 57. Interface
+
+* Used to achieve **100% abstraction**
+* Supports multiple inheritance
+* Cannot create objects
+* Methods → `public abstract` by default
+* Variables → `public static final` by default
+* No constructor, static block, or instance block allowed
+* Static methods accessed using interface name
+
+### Inheritance Rules:
+
+* Class → Class → `extends`
+* Class → Interface → `implements`
+* Interface → Interface → `extends`
+* Class → Interface ❌ not allowed
+
+---
+
+## 58. Types of Interfaces
+
+1. **Normal Interface**
+
+   * Contains multiple abstract methods
+
+2. **Marker Interface**
+
+   * Contains no abstract methods
+
+3. **Functional Interface**
+
+   * Contains only one abstract method
+
+---
+
+## 59. Object Class
+
+`Object` is the **supermost class** in Java (`java.lang` package).
+
+### Non-static Methods:
+
+* `toString()`
+* `hashCode()`
+* `equals(Object obj)`
+* `finalize()`
+* `getClass()`
+* `clone()`
+* `wait()`
+* `wait(long)`
+* `wait(long, int)`
+* `notify()`
+* `notifyAll()`
+
+---
+
+## 60. Why Override toString()
+
+To **print object data** instead of memory address.
+
+---
+
+## 61. Why Override equals()
+
+To **compare object data** instead of memory addresses.
+
+---
+
+## 62. Exception
+
+An exception is a **runtime problem** that disrupts normal program flow.
+
+---
+
+## 63. Exception Hierarchy
+
+### Error
+
+* VirtualMachineError
+* StackOverflowError
+* OutOfMemoryError
+
+### Exception
+
+#### RuntimeException (Unchecked)
+
+* ArithmeticException
+* InputMismatchException
+* NullPointerException
+* ClassCastException
+* IndexOutOfBoundsException
+
+#### Checked Exception
+
+* SQLException
+* IOException
+* FileNotFoundException
+* CloneNotSupportedException
+* InterruptedException
+* ClassNotFoundException
+
+---
+
+## 64. What Happens When Exception Occurs
+
+* Program flow stops
+* Exception object is created
+* JVM searches for handler
+* If handled → program continues
+* If not → program terminates
+
+---
+
+## 65. Exception Handling Types
+
+* Try–Catch
+* Try–Multiple Catch
+* Try–Finally
+* Try–Catch–Finally
+
+---
+
+## 66. Exception Keywords
+
+### Try
+
+Contains risky code
+
+### Catch
+
+Handles exception safely
+
+### Finally
+
+Always executes (cleanup)
+
+### Throw
+
+Manually throws exception
+
+### Throws
+
+Declares exception responsibility
+
+---
+
+## 67. Wrapper Classes
+
+Wrapper classes convert **primitive types into objects**.
+
+### Why Needed:
+
+* Collections & Generics
+* Utility methods
+* Support `null`
+
+### Mapping:
+
+| Primitive | Wrapper   |
+| --------- | --------- |
+| byte      | Byte      |
+| short     | Short     |
+| int       | Integer   |
+| long      | Long      |
+| float     | Float     |
+| double    | Double    |
+| char      | Character |
+| boolean   | Boolean   |
+
+---
+
+## 68. Boxing and Unboxing
+
+* **Boxing** → Primitive → Wrapper
+* **Unboxing** → Wrapper → Primitive
+
+---
+
+## 69. Collection Framework
+
+The Collection Framework provides mechanisms to perform:
+
+* CRUD operations
+* Searching
+* Sorting
+  on a **group of objects**
+
+---
+
+## 70. Collection Framework – Overview
+
+### Collection
+
+A **collection** is a group of objects stored inside another object.
+
+### Framework
+
+A **framework** is a set of inbuilt **classes and interfaces** that provides ready-made functionality.
+
+---
+
+## 71. Collection Hierarchy
+
+```
+Iterable
+ └── Collection
+      ├── List
+      │    ├── ArrayList
+      │    ├── LinkedList
+      │    ├── Vector
+      │    │    └── Stack
+      ├── Set
+      │    ├── HashSet
+      │    ├── LinkedHashSet
+      │    └── TreeSet
+      └── Queue
+           ├── PriorityQueue
+           └── LinkedQueue
+```
+
+---
+
+## 72. List Interface
+
+* `List` is an **interface**
+* Sub-interface of `Collection`
+* Present in `java.util` package
+* Cannot create object of List (interface)
+* Reference variable is allowed
+
+### Properties:
+
+* Can store **different types of objects** (Non-generic)
+* **Dynamic** in size
+* Maintains **insertion order**
+* Allows **duplicate elements**
+* Maintains **index** (starts from 0)
+* Allows **null values**
+
+---
+
+## 73. Common List Methods
+
+| Method                    | Description       | Return Type |
+| ------------------------- | ----------------- | ----------- |
+| `add(Object)`             | Add element       | boolean     |
+| `size()`                  | List size         | int         |
+| `get(int)`                | Get element       | Object      |
+| `addAll(Collection)`      | Add collection    | boolean     |
+| `addAll(int, Collection)` | Add at index      | boolean     |
+| `remove(int)`             | Remove by index   | Object      |
+| `remove(Object)`          | Remove object     | boolean     |
+| `removeAll(Collection)`   | Remove collection | boolean     |
+| `clear()`                 | Clear list        | void        |
+| `contains(Object)`        | Search element    | boolean     |
+| `containsAll(Collection)` | Search collection | boolean     |
+
+📌 `toString()`, `hashCode()`, and `equals()` are already overridden in collection classes.
+
+---
+
+## 74. Types of Collection
+
+### 1. Generic Collection
+
+* Stores **same type of objects**
+* Uses `< >` (angle brackets)
+
+### 2. Non-Generic Collection
+
+* Stores **different types of objects**
+
+---
+
+## 75. Collection Operations
+
+### Add Operations
+
+* `add(Object)`
+* `addAll(Collection)`
+* `add(int, Object)`
+* `addAll(int, Collection)`
+
+### Remove Operations
+
+* `remove(Object)`
+* `remove(int)`
+* `removeAll(Collection)`
+* `clear()`
+
+### Search Operations
+
+* `contains(Object)`
+* `containsAll(Collection)`
+
+### Access Operations
+
+* `get(int)`
+* `iterator()`
+* `listIterator()`
+* For-each loop
+
+---
+
+## 76. For Loop vs For-Each Loop
+
+### For Loop
+
+* Three parts: initialization; condition; increment/decrement
+* Full control over index
+* Can stop using condition or `break`
+
+### For-Each Loop
+
+* Syntax: `element : collection`
+* No index control
+* Cannot modify condition
+* Can stop only using `break`
+
+---
+
+## 77. Iterator
+
+Iterator is a **cursor interface** used to traverse collections.
+
+### Methods:
+
+* `hasNext()` → checks next element (boolean)
+* `next()` → returns next element (Object)
+* `remove()` → removes last accessed element (void)
+
+⚠️ Calling `remove()` before `next()` causes `IllegalStateException`
+➡️ Iterator supports **forward traversal only**
+
+---
+
+## 78. Vector
+
+* Implementation class of `List`
+* Present in `java.util`
+* Legacy class (since JDK 1.0)
+* Dynamic data structure
+* Stores objects in **continuous memory**
+* Methods are **synchronized**
+
+---
+
+## 79. ArrayList vs Vector
+
+| Feature         | ArrayList        | Vector       |
+| --------------- | ---------------- | ------------ |
+| Synchronization | Not synchronized | Synchronized |
+| Performance     | Faster           | Slower       |
+| Thread Safety   | Not thread-safe  | Thread-safe  |
+| Usage           | Preferred        | Legacy       |
+
+---
+
+## 80. Stack
+
+* Subclass of `Vector`
+* Follows **LIFO / FILO**
+* Legacy class
+* Used for stack operations
+
+### Stack Methods:
+
+| Method         | Description         |
+| -------------- | ------------------- |
+| `push(Object)` | Add element         |
+| `pop()`        | Remove & return top |
+| `peek()`       | View top element    |
+| `isEmpty()`    | Check empty         |
+
+⚠️ `pop()` or `peek()` on empty stack → `EmptyStackException`
+
+---
+
+## 81. LinkedList
+
+* Implements `List` and `Queue`
+* Introduced in JDK 1.2
+* Uses **Doubly Linked List**
+* Best for insertion & deletion
+* Uses `ListIterator` for traversal
+
+### Types of Linked Lists:
+
+* **Singly Linked List** → One-direction
+* **Doubly Linked List** → Two-direction
+* **Circular Doubly Linked List** → Continuous looping
+
+---
+
+## 82. PriorityQueue
+
+* Implementation of `Queue`
+* Introduced in JDK 1.5
+* Follows **priority order**, not insertion order
+* Default: **Min-Heap**
+* No null values
+* Allows duplicates
+* Same type objects only
+* Implemented using **Heap**
+
+---
+
+## 83. Heap Data Structure
+
+* Non-linear structure
+* Follows **Complete Binary Tree**
+
+### Types:
+
+* **Min Heap** → Parent ≤ Child
+* **Max Heap** → Parent ≥ Child
+
+---
+
+## 84. HashSet
+
+* Implementation of `Set`
+* Introduced in JDK 1.2
+* No insertion order
+* No sorting order
+* No duplicates
+* Allows **one null**
+* Uses **HashTable**
+* Fast performance
+
+---
+
+## 85. LinkedHashSet
+
+* Maintains **insertion order**
+* No duplicates
+* Allows one null
+* Uses **HashTable + Doubly Linked List**
+* Slightly slower than HashSet
+
+---
+
+## 86. TreeSet
+
+* Implements `NavigableSet`
+* Introduced in JDK 1.2
+* Maintains **sorted order**
+* No duplicates
+* No null allowed
+* Same type objects only
+* Used when **sorted + unique** data is required
+
+---
+
+## 87. Map Interface
+
+* `Map` is an **interface**
+* Present in `java.util` package
+* Stores data in **key–value pairs**
+* One key–value pair is called an **Entry**
+* **Keys must be unique**
+* **Values can be duplicated**
+* Map is **not part of Collection** (because it stores key–value pairs)
+
+### Implementing Classes:
+
+* HashMap
+* LinkedHashMap
+* TreeMap
+
+---
+
+## 88. Common Map Methods
+
+| Method                 | Description            | Return Type |
+| ---------------------- | ---------------------- | ----------- |
+| `put(key, value)`      | Add entry              | Object      |
+| `remove(key)`          | Remove entry           | Object      |
+| `containsKey(key)`     | Check key              | boolean     |
+| `containsValue(value)` | Check value            | boolean     |
+| `get(key)`             | Get value              | Object      |
+| `entrySet()`           | Convert entries to Set | Set         |
+| `keySet()`             | Get all keys           | Set         |
+| `values()`             | Get all values         | Collection  |
+
+📌 If a key already exists, `put()` **overwrites the old value**
+📌 If key is new, `put()` returns `null`
+
+---
+
+## 89. HashMap
+
+* Implementation class of `Map`
+* Introduced in **JDK 1.2**
+* Does **not maintain insertion order**
+* Does **not maintain sorting order**
+* No duplicate keys
+* Allows duplicate values
+* Allows **one null key**
+* Allows **multiple null values**
+* Internally uses **HashTable (Hashing)**
+* **Not synchronized**
+* Very fast performance
+
+### Use Case:
+
+* When **fast access** is required
+* Order is **not important**
+
+---
+
+## 90. LinkedHashMap
+
+* Implementation class of `Map`
+* Introduced in **JDK 1.4**
+* Maintains **insertion order**
+* No sorting order
+* No duplicate keys
+* Allows duplicate values
+* Allows one null key
+* Allows multiple null values
+* Uses **HashTable + Doubly Linked List**
+* Slightly slower than HashMap
+* Not synchronized
+
+### Use Case:
+
+* When **unique keys + insertion order** is required
+
+---
+
+## 91. TreeMap
+
+* Implementation class of `NavigableMap`
+* Introduced in **JDK 1.2**
+* Maintains **sorted order of keys**
+* No insertion order
+* No duplicate keys
+* Allows duplicate values
+* ❌ Does not allow null keys
+* Allows multiple null values
+* Stores data in **sorted structure**
+
+### Use Case:
+
+* When **sorted key–value pairs** are required
+
+---
+
+## 92. Comparable Interface
+
+* Present in `java.lang` package
+* Introduced in **JDK 1.2**
+* Used to define **natural sorting order**
+* Contains only one method:
+
+  * `compareTo(Object o)`
+* Sorting logic written in **same class**
+* Allows **only one sorting sequence**
+* Modifies original class
+
+### Used With:
+
+* `Collections.sort()`
+* `TreeSet`
+* `TreeMap`
+
+📌 Classes like `String`, `Integer`, `Float` already implement Comparable
+
+---
+
+## 93. Comparator Interface
+
+* Present in `java.util` package
+* Introduced in **JDK 1.2**
+* Used to define **custom sorting**
+* Methods:
+
+  * `compare(Object o1, Object o2)`
+  * `equals(Object obj)`
+* Sorting logic written in **separate class**
+* Allows **multiple sorting sequences**
+* Does not modify original class
+
+### Used When:
+
+* Class source code cannot be changed
+* Sorting based on multiple fields
+
+---
+
+## 94. Comparable vs Comparator
+
+| Feature        | Comparable  | Comparator     |
+| -------------- | ----------- | -------------- |
+| Package        | java.lang   | java.util      |
+| Method         | compareTo() | compare()      |
+| Sorting Logic  | Same class  | Separate class |
+| Sorting Types  | One         | Multiple       |
+| Modifies Class | Yes         | No             |
+
+---
+
+## 95. Enum (Enumeration)
+
+* Enum is a **special data type**
+* Introduced in **JDK 1.5**
+* `enum` is a keyword
+* Enum constants are **public static final**
+* Enum constants are **objects**
+* Cannot be instantiated using `new`
+
+### Uses:
+
+* Restrict values
+* Improve readability
+* Avoid invalid data
+* Replace multiple constants
+* Provide type safety
+
+### Enum Methods:
+
+* `values()` → All constants
+* `valueOf()` → String to enum
+* `ordinal()` → Index position
+* `name()` → Constant name
+
+---
+
+## 96. Functional Programming
+
+Functional Programming is a programming style where programs are written using **functions without modifying data**.
+
+📌 Java 8 introduced Functional Programming to make Java:
+
+* Shorter
+* Cleaner
+* Faster
+* More modern
+
+---
+
+## 97. Functional Interface
+
+* Contains **exactly one abstract method**
+* Can have multiple default or static methods
+* Required for **lambda expressions**
+* `@FunctionalInterface` annotation is optional but recommended
+
+---
+
+## 98. Predefined Functional Interfaces
+
+| Interface  | Method      | Use            |
+| ---------- | ----------- | -------------- |
+| Runnable   | run()       | Threads        |
+| Comparable | compareTo() | Sorting        |
+| Comparator | compare()   | Custom sorting |
+
+---
+
+## 99. Anonymous Class
+
+* Class without a name
+* Created and used **in one step**
+* Used when class is needed **only once**
+
+### Used For:
+
+* Overriding methods
+* Implementing interfaces temporarily
+
+---
+
+## 100. Lambda Expressions
+
+* Anonymous function
+* Provides implementation of functional interface
+* Reduces boilerplate code
+
+### Syntax:
+
+```
+(parameter) -> expression
+```
+
+OR
+
+```
+(parameter) -> {
+    // multiple statements
+}
+```
+
+---
+
 
 
 
