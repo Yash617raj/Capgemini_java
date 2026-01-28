@@ -37,7 +37,7 @@ public class Streams {
         System.out.println("\nSorted by ID (Descending)");
         student.stream().sorted(Comparator.comparingInt((Students s) -> s.id).reversed()).forEach(System.out::println);
         // 3. Write a Java Stream one-liner to sort Students objects based on name and display the result.
-         System.out.println("\nSorted by Name");
+        System.out.println("\nSorted by Name");
         student.stream().sorted(Comparator.comparing(s -> s.name)).forEach(System.out::println);
         // 4. Write a Java Stream one-liner to sort Students objects by marks and print them.
         System.out.println("\nSorted by Marks");

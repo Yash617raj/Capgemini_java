@@ -1,14 +1,10 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 class Task implements Runnable {
-
     int taskId;
-
     Task(int taskId) {
         this.taskId = taskId;
     }
-
     @Override
     public void run() {
         System.out.println(
@@ -25,12 +21,10 @@ public class Create_Threadpool {
 
         // Create thread pool of size 3
         ExecutorService service = Executors.newFixedThreadPool(3);
-
         // Submit 6 tasks
         for (int i = 1; i <= 6; i++) {
             service.execute(new Task(i));
         }
-
         // Shutdown pool
         service.shutdown();
     }
