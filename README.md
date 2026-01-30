@@ -1543,6 +1543,551 @@ OR
 
 ---
 
+## 101. Method Reference
 
+* Shortcut for a lambda expression that **only calls an existing method**
+* Used when a lambda contains **only one statement**
+* That statement must directly call an existing method
+* Works **only** when lambda directly calls one method
 
+### Syntax:
+
+```
+ClassName::methodName
+```
+
+### Example:
+
+```
+F1 ref1 = (a, b) -> a + b;
+System.out.println(ref1.add(10, 20));
+```
+
+Instead of this, we can use an existing method like `Integer.sum()`:
+
+```
+F2 ref2 = Integer::sum;
+System.out.println(ref2.add(10, 30));
+```
+
+---
+
+## 102. Stream (Java 8 Feature)
+
+* Used to process collection data in a **functional way**
+* Does **not store data**
+* Works **on collection data**
+* Processes elements **one by one**
+* Does **not modify the original collection**
+
+### Basic Stream Flow:
+
+```
+Collection → Stream → Operation → Result
+```
+
+### Example Flow:
+
+```
+List → stream() → filter() → forEach()
+```
+
+### Common Stream Methods:
+
+* `stream()` – Converts collection into a stream
+* `filter()` – Selects elements based on a condition
+* `map()` – Transforms each element into another form
+* `forEach()` – Performs an action on each element
+* `collect()` – Converts stream back into collection or result
+* `sorted()` – Sorts using natural order (Comparable)
+* `sorted(Comparator)` – Sorts using custom logic
+
+---
+
+## 103. Regular Expressions (Regex)
+
+* A smart rule to check whether text follows a **specific pattern**
+* Used to **match, search, validate, split, or replace** text
+* Java provides regex support via `java.util.regex` package
+
+### Uses of Regular Expressions:
+
+* Input validation (email, mobile number, password)
+* Efficient text searching
+* Extracting specific data
+* Replacing or splitting strings
+
+---
+
+## 104. Regex Core Classes
+
+### Pattern
+
+* Represents a compiled regex pattern
+* Created once and reused
+* Improves performance
+
+### Matcher
+
+* Applies the pattern to a string
+* Performs actual matching operations
+
+### Relationship:
+
+* **Pattern defines the rule**
+* **Matcher applies the rule**
+
+---
+
+## 105. Common Regex Symbols
+
+* `.` – Any single character except newline
+* `+` – One or more occurrences
+* `*` – Zero or more occurrences
+* `?` – Zero or one occurrence
+* `\d` – Any digit (0–9)
+* `\w` – Letters, digits, underscore
+* `\s` – Whitespace character
+* `[A-Z]` – Any uppercase letter
+* `[a-z]` – Any lowercase letter
+* `abc` – Exact sequence match
+* `{n}` – Exactly `n` occurrences
+* `{n,m}` – Between `n` and `m` occurrences
+* `|` – OR condition (grouping with `()` recommended)
+
+---
+
+## 106. String.matches() Limitation
+
+* Matches **entire string only**
+* Cannot search inside text
+* Cannot find multiple matches
+* Not reusable or efficient for repeated operations
+
+---
+
+## 107. Pattern & Matcher Example
+
+```
+import java.util.regex.*;
+
+public class Demo {
+    public static void main(String[] args) {
+        Pattern p = Pattern.compile("\\d+");
+        Matcher m = p.matcher("Java 123 and 456");
+        while (m.find()) {
+            System.out.println(m.group());
+        }
+    }
+}
+```
+
+### Output:
+
+```
+123
+456
+```
+
+---
+
+## 108. When to Use Pattern & Matcher
+
+Use them when you need:
+
+* Searching inside a string
+* Multiple matches
+* Reusing the same regex
+* Start and end positions of matches
+
+---
+
+## 109. Important Regex Methods
+
+### compile()
+
+* Converts regex string into optimized `Pattern`
+* Regex cannot work without compilation
+
+### find()
+
+* Searches for the **next matching substring**
+
+### group()
+
+* Returns the matched text or group
+
+---
+
+## 110. Group Examples
+
+### Example 1:
+
+```
+Pattern p = Pattern.compile("\\d+");
+Matcher m = p.matcher("Java 123 and 456");
+```
+
+Output:
+
+```
+123
+456
+```
+
+### Example 2 (Groups):
+
+```
+Pattern p = Pattern.compile("(\\d{2})-(\\d{2})-(\\d{4})");
+Matcher m = p.matcher("DOB: 12-05-2024");
+```
+
+Output:
+
+```
+12-05-2024
+12
+05
+2024
+```
+
+### Example 3 (Email):
+
+```
+Pattern p = Pattern.compile("(\\w+)@(\\w+\\.\\w+)");
+Matcher m = p.matcher("mail: test@gmail.com");
+```
+
+Output:
+
+```
+User: test
+Domain: gmail.com
+```
+
+---
+
+## 111. Matcher start() and end()
+
+* `start()` – Starting index of match
+* `end()` – Index after last matched character
+
+### Example:
+
+```
+import java.util.regex.*;
+
+public class RegexAllMethodsDemo {
+    public static void main(String[] args) {
+        String text = "Java 123 and 456 released on 12-05-2024";
+        Pattern pattern = Pattern.compile("(\\d+)");
+        Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+            System.out.println(matcher.start());
+            System.out.println(matcher.end());
+            System.out.println("-----");
+        }
+    }
+}
+```
+
+---
+
+## 112. Multithreading
+
+* Process of executing **multiple threads simultaneously**
+* Thread = lightweight sub-process
+* Exception in one thread does **not affect others**
+* Threads share **common memory**
+
+### Why Multithreading over Multiprocessing?
+
+* Saves memory
+* Faster context switching
+* Better CPU utilization
+
+### Common Uses:
+
+* Games
+* Animations
+* Real-time applications
+
+---
+
+## 113. Advantages of Multithreading
+
+* Does not block user
+* Multiple operations at the same time
+* Saves execution time
+
+---
+
+## 114. Multitasking
+
+* Executing multiple tasks simultaneously
+* Utilizes CPU efficiently
+
+### Types:
+
+* **Process-based Multitasking (Multiprocessing)**
+* **Thread-based Multitasking (Multithreading)**
+
+---
+
+## 115. Process-based Multitasking (Multiprocessing)
+
+* Each process has its **own address space**
+* Allocates **separate memory**
+* Process is **heavyweight**
+* Inter-process communication cost is **high**
+* Context switching is **slow**
+  (saving/loading registers, memory maps, process lists)
+
+---
+
+## 116. Thread-based Multitasking (Multithreading)
+
+* Threads **share the same address space**
+* Thread is **lightweight**
+* Communication cost between threads is **low**
+* Faster context switching
+
+---
+
+## 117. Life Cycle of a Thread (Thread States)
+
+Thread life cycle in Java is controlled by the **JVM**.
+
+### States:
+
+* **New**
+  Thread object is created but `start()` not called
+
+* **Runnable**
+  `start()` called, waiting for CPU
+
+* **Running**
+  Thread scheduler selects the thread for execution
+
+* **Non-Runnable (Blocked / Waiting)**
+  Thread is alive but not eligible to run
+
+* **Terminated (Dead)**
+  `run()` method execution completed
+
+---
+
+## 118. Ways to Create a Thread
+
+* By extending **Thread** class
+* By implementing **Runnable** interface
+
+---
+
+## 119. Thread Class
+
+* Provides constructors and methods to create and control threads
+* Extends `Object` class
+* Implements `Runnable` interface
+
+### Common Constructors:
+
+* `Thread()`
+* `Thread(String name)`
+* `Thread(Runnable r)`
+* `Thread(Runnable r, String name)`
+
+---
+
+## 120. Common Methods of Thread Class
+
+* `run()` – Code executed by thread
+* `start()` – Starts thread execution
+* `sleep(long ms)` – Pauses thread for given time
+* `join()` – Waits for thread to die
+* `join(long ms)` – Waits for given time
+* `getPriority()` – Returns priority
+* `setPriority(int)` – Sets priority
+* `getName()` – Returns thread name
+* `setName(String)` – Sets thread name
+* `currentThread()` – Returns current thread
+* `getId()` – Returns thread ID
+* `getState()` – Returns thread state
+* `isAlive()` – Checks if thread is alive
+* `yield()` – Pauses current thread temporarily
+* `interrupt()` – Interrupts thread
+* `isInterrupted()` – Checks interrupt status
+* `interrupted()` – Checks & clears interrupt flag
+
+### Deprecated Methods:
+
+* `suspend()`
+* `resume()`
+* `stop()`
+
+---
+
+## 121. Runnable Interface
+
+* Implemented by classes whose instances are executed by threads
+* Contains **only one method**
+
+```
+void run();
+```
+
+---
+
+## 122. Thread Scheduler
+
+* Part of the **JVM**
+* Decides which runnable thread gets CPU
+* No guarantee which thread will run
+* Only **one thread executes at a time** per CPU core
+
+---
+
+## 123. Daemon Thread in Java
+
+* Background thread supporting user threads
+* JVM **does not wait** for daemon threads
+* Automatically stops when all user threads finish
+
+### Properties:
+
+* Runs in background
+* Low priority
+* `setDaemon(true)` must be called **before** `start()`
+
+---
+
+## 124. Java Thread Pool
+
+* Group of reusable worker threads
+* Threads wait for tasks and execute repeatedly
+* Improves performance by avoiding thread creation overhead
+
+### Advantages:
+
+* Better performance
+* Saves memory and time
+* Used in **Servlets and JSP**
+
+---
+
+## 125. Thread Pool Working
+
+* Threads are **not created manually**
+* Pool creates and manages threads
+* Tasks are submitted to the pool
+
+### Example:
+
+```
+ExecutorService pool = Executors.newFixedThreadPool(3);
+```
+
+* Creates a pool of 3 threads
+* Threads are ready and waiting
+
+### execute():
+
+* Submits a task to the thread pool
+* Pool decides which thread executes it
+
+---
+
+## 126. Synchronization in Java
+
+* Controls access to shared resources
+* Allows **only one thread at a time**
+* Prevents:
+
+  * Thread interference
+  * Data inconsistency
+
+---
+
+## 127. Lock (Monitor) Concept
+
+* Every object has an internal **lock**
+* Thread must acquire lock before accessing shared data
+* Lock released after execution
+
+---
+
+## 128. Synchronized Method
+
+* Method declared with `synchronized`
+* Locks the **object**
+* Only one thread can execute it at a time
+* Lock is released after method completes
+
+---
+
+## 129. Synchronized Block
+
+* Synchronizes only a **specific portion** of code
+* Reduces scope of locking
+* Improves performance
+
+### Key Points:
+
+* Locks a specific object
+* Smaller scope than synchronized method
+* If entire method is synchronized → same as synchronized method
+
+---
+
+## 130. Deadlock in Java
+
+* Situation where two or more threads wait forever
+* Each thread holds a lock needed by another
+* Causes permanent blocking
+
+---
+
+## 131. Inter-thread Communication
+
+* Allows threads to communicate while synchronized
+* One thread waits, another continues execution
+* Implemented using `Object` class methods
+
+### Methods Used:
+
+* `wait()`
+* `notify()`
+* `notifyAll()`
+
+---
+
+## 132. wait() Method
+
+* Releases lock and waits
+* Resumes when:
+
+  * `notify()` is called
+  * `notifyAll()` is called
+  * Timeout occurs
+* Must be called inside synchronized block
+* Otherwise throws exception
+
+---
+
+## 133. notify() Method
+
+* Wakes **one** waiting thread
+* Choice of thread is JVM-dependent
+* Called on object’s monitor
+
+---
+
+## 134. notifyAll() Method
+
+* Wakes **all** waiting threads
+* Threads compete for lock after waking
+
+---
 
